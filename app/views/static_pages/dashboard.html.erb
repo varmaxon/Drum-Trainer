@@ -1,3 +1,14 @@
 <h1>Выполнить рассчет</h1>
 
+<h3>Введите число n</h3>
 
+<div class="form">
+<%= form_with url: "/calc/result", method: :get do |form| %>
+    <%= form.label "Введите число n: " %>
+    <%= form.text_field :numbers, value: "100" %>
+    <br/> 
+    <%= form.submit "SUBMIT" %>
+    <% end %>
+</div>
+
+<%= link_to "Рассчитать", form_path %>

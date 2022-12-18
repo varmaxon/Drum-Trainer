@@ -32,6 +32,19 @@ header{
   padding-top: 15px;
 }
 .log-out {
-  padding-right: 69%;
+  padding-right: 65%;
   float: right;
+}
+.table_pos {
+  padding-top: 10px;
+  padding-left: 42%;
+}
+table {
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+  border-collapse: collapse;
+}
+td {
+  border: 3px solid purple;
 }

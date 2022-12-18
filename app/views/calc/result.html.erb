@@ -1,0 +1,18 @@
+<h1>РЕЗУЛЬТАТ</h1>
+<div class="put" id="input_data">Входные данные: <strong>n = <%= @input_data %></strong></div>
+<div class="put" id="result">Выходные данные:</div>
+
+<div class="table_pos">
+<table>
+  <tbody>
+    <% @result.each do |i| %>
+    <tr>
+      <td><%= i[0] %></td>
+      <td><%= i[1] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="pos" id="link"><%= link_to "Repeat", dashboard_path %></div>

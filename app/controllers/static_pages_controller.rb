@@ -5,5 +5,7 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
+    n = params[:numbers]
+    @input_data = n
   end
 end

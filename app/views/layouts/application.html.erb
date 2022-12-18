@@ -13,7 +13,7 @@
   <header>
     <div class="main-menu">
       <%= link_to "Главная", root_path %>
-      <%= link_to "Задание", static_pages_dashboard_path %>
+      <%= link_to "Задание", dashboard_path %>
       <% if current_user %>
         &nbsp&nbsp&nbsp Аккаунт: <%= current_user.email %>
         <div class="log-out"><%= button_to "Выйти", destroy_user_session_path, method: :delete, data: {turbo: false} %></div>
