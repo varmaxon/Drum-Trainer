@@ -1,0 +1,2 @@
+class CalcController < ApplicationController
+end

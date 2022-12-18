@@ -10,18 +10,22 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <header>
+    <div class="main-menu">
+      <%= link_to "Главная", root_path %>
+      <%= link_to "Задание", static_pages_dashboard_path %>
+      <% if current_user %>
+        &nbsp&nbsp&nbsp Аккаунт: <%= current_user.email %>
+        <div class="log-out"><%= button_to "Выйти", destroy_user_session_path, method: :delete, data: {turbo: false} %></div>
+      <% else %>
+        <%= link_to "Регистрация", new_user_registration_path %>
+        <%= link_to "Вход", new_user_session_path %>
+      <% end %>
+    </div>
+  </header>
   <body>
+    <div class="pos"><%= yield %>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= link_to "Dashboard", static_pages_dashboard_path %>
-    <% if current_user %>
-      <%= current_user.email %>
-      <%= button_to "Log out", destroy_user_session_path, method: :delete, data: {turbo: false} %>
-    <% else %>
-      <%= link_to "Register", new_user_registration_path %>
-      <%= link_to "Log in", new_user_session_path %>
-    <% end %>
-    <%= link_to "Home", root_path %>
-    <%= yield %>
+    <p class="alert"><%= alert %></p></div>
   </body>
 </html>

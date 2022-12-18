@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+.main-menu {
+  font-size: 20px;
+  padding-left: 3%;
+  padding-top: 13px;
+  vertical-align: middle; 
+}
+header{
+	width: 100%;
+	background: #D8E3AB;
+  height: 50px;
+}
+.pos {
+  padding-top: 50px;
+  text-align: center;
+}
+.actions {
+  padding-top: 15px;
+}
+.log-out {
+  padding-right: 69%;
+  float: right;
+}
