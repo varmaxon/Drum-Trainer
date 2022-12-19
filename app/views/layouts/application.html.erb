@@ -12,20 +12,20 @@
 
   <header>
     <div class="main-menu">
-      <%= link_to "Главная |", root_path %>
-      <%= link_to "Задание |", dashboard_path %>
+      <span class="_link_"><%= link_to "Главная", root_path %></span>
+      <span class="_link_"><%= link_to "GO 🥁", dashboard_path %></span>
       <% if current_user %>
-        &nbsp&nbsp&nbsp Аккаунт: <%= current_user.email %>
+        <span id="akk">&nbsp&nbsp&nbsp Аккаунт: <%= current_user.email %></span>
         <div class="log-out"><%= button_to "Выйти", destroy_user_session_path, method: :delete, data: {turbo: false} %></div>
       <% else %>
-        <%= link_to "Регистрация |", new_user_registration_path %>
-        <%= link_to "Вход", new_user_session_path %>
+        <span class="_link_"><%= link_to "Регистрация", new_user_registration_path %></span>
+        <span class="_link_"><%= link_to "Вход", new_user_session_path %></span>
       <% end %>
     </div>
   </header>
-  <body>
-    <div class="pos"><%= yield %>
+  <body class="bg-ex-parallax">
+    <div class="pos"><%= yield %></div>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p></div>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

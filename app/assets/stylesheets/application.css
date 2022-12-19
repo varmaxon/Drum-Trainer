@@ -13,26 +13,184 @@
  *= require_tree .
  *= require_self
  */
+#h-title {
+  font-family: cursive;
+  font-size: 150px;
+  color:#fff;
+
+}
+h2 { color:beige; font-family:monospace; font-size: 25px; }
 .main-menu {
   font-size: 20px;
   padding-left: 3%;
-  padding-top: 13px;
+  /* padding-top: 13px; */
   vertical-align: middle; 
 }
-header{
-	width: 100%;
-	background: #D8E3AB;
-  height: 50px;
+.bg-ex-parallax { 
+	background: url(img_3.jpg); /* Картинка на фоне сайта*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	position: relative;
 }
+.main_content {
+  /* margin-top: 15%; */
+  
+  margin-left: 8%;
+  padding: 30px;
+  width: 80%;
+  height: 1500px;
+  border-radius: 3em;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+}
+header{
+  text-decoration: none;
+  position: fixed;
+	width: 100%;  
+	height: 70px;
+	border-radius: 0.5em;
+	font-size: 30px;
+	font-weight: bold;
+	background: rgba(0, 0, 0, 0.85);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+._link_ a:link { 
+  text-decoration:none; 
+  background-color:rgb(210, 129, 129);
+  border-radius: 2rem;
+  /* height: 30px; */
+  color: white;
+  padding: 5px 25px;
+  text-align: center; 
+  display: inline-block;
+}
+#akk { color: #fff; }
+
+/* header { 
+	
+} */
+nav
+{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+body {
+  /* background-image: url(img_2.jpg); Путь к фоновому изображению */
+  /* background-color: #c7b39b; Цвет фона */
+ }
+
+
+/*/////////////////////////////////// N  E  O  N /////////////////////////////////////*/
+
+/*Стили для неонового текста*/
+
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+:root {
+  /* Base font size */
+  font-size: 10px;   
+  
+  /* Set neon color */
+  --neon-text-color: #44D62C;
+  --neon-border-color: #08f;
+}
+
+.main-title h1 {
+  width: 40%;
+  margin-left: 26%;
+  font-family: 'Exo 2', sans-serif;
+  display: flex;
+
+  font-size: 13rem;
+  font-weight: 200;
+  /* font-style: italic; */
+  color: #fff;
+  padding: 4rem 6rem 5.5rem;
+  border: 0.4rem solid #fff;
+  border-radius: 2rem;
+  animation: flicker 1.5s infinite alternate;     
+}
+
+
+/*_____________________________________*/
+
+.main-title h2 {
+  width: 100%;
+  height: 10%;
+  padding-top: 0px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 50px;
+  animation: flicker_2 1.5s infinite alternate;
+  padding-bottom: 12%;   
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+/* Animate neon flicker_2 */
+@keyframes flicker_2 {
+    
+    0%, 0%, 0%, 0%, 0%, 0%, 0%, 100% {
+      
+        text-shadow:
+            /*-0.2rem -0.2rem 1rem #fff,*/
+            0.0rem 0.0rem 1rem #44D62C,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 1rem var(--neon-text-color),
+            0 0 1rem var(--neon-text-color);
+    } 
+}
+
+/*Конец стилей неона*/
+
+/*////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
 .pos {
-  padding-top: 50px;
+  padding-top: 100px;
   text-align: center;
 }
 .actions {
   padding-top: 15px;
 }
 .log-out {
-  padding-right: 65%;
+  padding-top: 3px;
+  padding-right: 2%;
   float: right;
 }
 .table_pos {

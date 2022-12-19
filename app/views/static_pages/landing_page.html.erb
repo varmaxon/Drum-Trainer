@@ -1,16 +1,20 @@
-<h1>Лабораторная работа №12</h1>
-<p>Сессии. Выполнение авторизации. Интеграционные тесты.</p></br>
+<div class="main-title">
+  <h1 id="h-title">Чувство Ритма</h1>
+  <h2>Тренажёр, развивающий чувство ритма</h2>
+</div>
 
-<h2>Список пользователей</h2>
-<div class="table_pos1">
-<table class="table_users">
-  <tbody>
-    <% @list_users.length.times do |i| %>
-    <tr>
-      <td><%= @list_users[i].id %></td>
-      <td><%= @list_users[i].email %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="main_content">
+  <h2>Список пользователей</h2>
+  <div class="table_pos1">
+  <table class="table_users">
+    <tbody>
+      <% @list_users.length.times do |i| %>
+      <tr>
+        <td><%= @list_users[i].id %></td>
+        <td><%= @list_users[i].email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 </div>
