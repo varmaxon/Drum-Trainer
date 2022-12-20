@@ -1,7 +1,19 @@
-<h1>Поехали!</h1>
+<div class="pos">
+  <div class="pulse"><p id="pulse-drum">🥁</p></div>
 
-<%= form_with url: form_path do |form| %>
-  <%= form.submit('GO!', id: 'calculate-btn') %>
-<% end %>
 
-<div id='result-container'></div>
+  <h1>Поехали!</h1>
+  <a href="#" onclick="this.style.backgroundColor='#009900';this.style.color='#FFFFFF';event.preventDefault();">Paint it green</a>
+  <p id="demo"></p>
+
+
+
+  <%= form_with url: form_path do |form| %>
+    <%= form.submit('GO!', id: 'calculate-btn', name: 'a_button') %>
+    <%= form.submit('STOP', id: 'calc-btn', name: 'b_button') %>
+  <% end %>
+
+
+
+  <div id='result-container'></div>
+</div>

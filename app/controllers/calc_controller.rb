@@ -3,13 +3,26 @@
 # Controller with Turbo AJAX
 class CalcController < ApplicationController
 
-  def result
-    start = Time.now
-    cnt = 0
-    10000000.times { |i| cnt += i }
-    finish = Time.now
+  @@mas = []
+  @@start = 0
+  @@fl = true
 
-    @result = finish - start
+  def result
+    if params[:a_button]
+      if @@fl
+        @@start = Time.now
+        @@fl = false
+      else
+        finish = Time.now
+        delta = (finish - @@start).round(2)
+        @@mas.push(delta)
+      end
+      @@start = Time.now
+    else
+      @result = @@mas
+      @@mas = []
+      @@fl = true
+    end
   end
 
 end
