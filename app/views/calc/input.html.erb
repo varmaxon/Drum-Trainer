@@ -1,12 +1,7 @@
-<div class="main_content">
-    <h1>Задание</h1>
+<h1>Поехали!</h1>
 
-    <div class="form">
-    <%= form_with url: form_path, method: :get do |form| %>
-        <%= form.label "Введите число n: " %>
-        <%= form.text_field :numbers, value: "100" %>
-        <br/> 
-        <div class="pos"><%= form.submit "Рассчитать" %></div>
-        <% end %>
-    </div>
-</div>
+<%= form_with url: form_path do |form| %>
+  <%= form.submit('GO!', id: 'calculate-btn') %>
+<% end %>
+
+<div id='result-container'></div>

@@ -27,7 +27,7 @@ h2 { color:beige; font-family:monospace; font-size: 25px; }
   vertical-align: middle; 
 }
 .bg-ex-parallax { 
-	background: url(img_3.jpg); /* Картинка на фоне сайта*/
+	/* background: url(img_3.jpg); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
