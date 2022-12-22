@@ -1,4 +1,23 @@
-<h1>Выполняется анализ...</h1>
+<h1>Анализ</h1>
+  
+<div class="table_pos">
+  <table class="table-res-1">
+    <tbody>
+      <tr>
+        <td>№</td>
+        <td>T, сек</td>
+        <td>Ошибка, %</td>
+      </tr>
+      <% if @result != nil %></p>
+        <% @result[0].each_index do |item| %>
+        <tr>
+          <td><%= item + 1 %></td>
+          <td><%= @result[0][item] %></td>
+          <td><%= @result[1][item] %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-
-<p><%= @result %></p>

@@ -15,7 +15,7 @@ class CalcController < ApplicationController
       if delta >= 0.05/beats_sec
         mas_res.push((delta.abs * 100).round(2))
       else
-        mas_res.push(0)
+        mas_res.push('✅')
       end
     end
     mas_res
@@ -36,7 +36,7 @@ class CalcController < ApplicationController
       end
       @@start = Time.now
     elsif params[:b_button]
-      @result = analysis dl, @@mas
+      @result = [@@mas, analysis(dl, @@mas)]
       @@mas = []
       @@fl = 0
     end

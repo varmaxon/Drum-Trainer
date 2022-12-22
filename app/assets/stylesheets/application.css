@@ -27,7 +27,7 @@ h2 { color:beige; font-family:monospace; font-size: 25px; }
   vertical-align: middle; 
 }
 .bg-ex-parallax { 
-	/* background: url(img_3.jpg); */
+	background: url(img_3.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -243,8 +243,11 @@ body {
   float: right;
 }
 .table_pos {
-  padding-top: 10px;
-  padding-left: 42%;
+  /* padding-top: 10px; */
+  padding-left: 34%;
+}
+.table-res-1{
+  width: 500px;
 }
 table {
   width: 300px;
