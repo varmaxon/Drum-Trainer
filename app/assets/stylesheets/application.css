@@ -45,14 +45,55 @@ h2 { color:beige; font-family:monospace; font-size: 25px; }
   background: rgba(0, 0, 0, 0.85);
   color: white;
 }
+.main_content_login {
+  margin-top: 50px;
+  margin-left: 28%;
+  padding: 50px;
+  width: 40%;
+  height: 520px;
+  border-radius: 3em;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  font-size: 25px;
+}
 .content-title {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 100px;
 }
+#log_in { padding-bottom: 50px; }
 .content-p {
   font-size: 35px;
   line-height: 2;
 }
+#email-field { font-size: 25px; }
+.field { padding-bottom: 20px; }
+
+/* .custom-btn {
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+} */
+#custom-btn {
+  display: inline-block;
+  color: rgb(206, 27, 27);
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+  font-size: 20px;
+  margin-bottom: 30px;
+} 
+#custom-btn:hover { background: rgba(255,255,255,.2); }
+#custom-btn:active { background: white; }
+
+.dl { font-size: 30px; padding-top: 20px; }
+
+#result-container { font-size: 30px; }
+
 header{
   text-decoration: none;
   position: fixed;
@@ -275,15 +316,16 @@ td {
   font-size: 50px;
 
 }
-#calculate-btn { width: 100px; }
+#calculate-btn { width: 200px; font-size: 30px; }
 
 .pulse {
 	margin:100px;
+  margin-left: 46.5%;
 	display: block;
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-	background: #cca92c;
+	background: rgb(210, 129, 129);
 	cursor: pointer;
 	box-shadow: 0 0 0 rgba(204,169,44, 0.4);
 	animation: pulse 1s infinite;
@@ -307,8 +349,8 @@ td {
 
 @keyframes pulse {
 	0% {
-		-moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.7);
-		box-shadow: 0 0 0 0 rgba(204,169,44, 0.7);
+		-moz-box-shadow: 0 0 0 0 rgb(210, 129, 129, 0.7);
+		box-shadow: 0 0 0 0 rgb(210, 129, 129, 0.7);
 	}
 	70% {
 		-moz-box-shadow: 0 0 0 50px rgba(204,169,44, 0);

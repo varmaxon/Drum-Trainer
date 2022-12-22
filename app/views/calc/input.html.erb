@@ -1,19 +1,31 @@
 <div class="pos">
-  <div class="pulse"><p id="pulse-drum">🥁</p></div>
+  <div class="main_content">
+
+    <h1>Выберите длительность</h1>
+    <!--#<a href="#" onclick="this.style.backgroundColor='#009900';this.style.color='#FFFFFF';event.preventDefault();">Paint it green</a>-->
+    <!--#<p id="demo"></p>-->
+    
+
+    <%= form_with url: form_path do |form| %>
+      <div class="dl">
+        <input class="radio1" type="radio" id="dl1" name="dl" value="1/1" />
+        <label for="age_child">1/1&nbsp&nbsp&nbsp</label>
+        <input type="radio" id="dl2" name="dl" value="1/2" />
+        <label for="age_adult">1/2&nbsp&nbsp&nbsp</label>
+        <input type="radio" id="dl1" name="dl" value="1/3" />
+        <label for="age_child">1/3&nbsp&nbsp&nbsp</label>
+        <input type="radio" id="dl2" name="dl" value="1/4" />
+        <label for="age_adult">1/4</label>
+      </div>
+      <span class="pulse"><p id="pulse-drum">🥁</p></span>
+      
+      
+      <%= form.submit('CLICK', id: 'calculate-btn', name: 'a_button') %></br></br>
+      <%= form.submit('STOP', id: 'calc-btn', name: 'b_button') %>
+    <% end %>
 
 
-  <h1>Поехали!</h1>
-  <a href="#" onclick="this.style.backgroundColor='#009900';this.style.color='#FFFFFF';event.preventDefault();">Paint it green</a>
-  <p id="demo"></p>
 
-
-
-  <%= form_with url: form_path do |form| %>
-    <%= form.submit('GO!', id: 'calculate-btn', name: 'a_button') %>
-    <%= form.submit('STOP', id: 'calc-btn', name: 'b_button') %>
-  <% end %>
-
-
-
-  <div id='result-container'></div>
+    <div id='result-container'></div>
+  </div>
 </div>

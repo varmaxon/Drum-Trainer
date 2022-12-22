@@ -1,28 +1,30 @@
 <div class="pos">
-  <h2>Вход в аккаунт</h2>
+  <div class="main_content_login">
+    <h3 id="log_in">Вход в аккаунт</h3>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'email-field' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", id: 'email-field' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Войти", id: 'custom-btn' %>
       </div>
     <% end %>
-
     <div class="actions">
-      <%= f.submit "Войти" %>
-    </div>
-  <% end %>
-  <div class="actions">
-  <%= render "devise/shared/links" %></div>
+    <%= render "devise/shared/links" %></div>
+  </div>
 </div>
