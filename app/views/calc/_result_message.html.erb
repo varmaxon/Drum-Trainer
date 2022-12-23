@@ -1,23 +1,34 @@
 <h1>Анализ</h1>
   
-<div class="table_pos">
-  <table class="table-res-1">
-    <tbody>
-      <tr>
-        <td>№</td>
-        <td>T, сек</td>
-        <td>Ошибка, %</td>
-      </tr>
-      <% if @result != nil %></p>
-        <% @result[0].each_index do |item| %>
+<% if @result == 'Сначала нужно выбрать длительность' %>
+  <%= @result %>
+<% else %>
+  <% if @result != nil %>
+    <div id="final-res">Итоговый результат: <%= @result[4] %>%</div>
+  <% end %>
+  <div class="table_pos block-scroll">
+    <table class="table-res-1">
+      <tbody>
         <tr>
-          <td><%= item + 1 %></td>
-          <td><%= @result[0][item] %></td>
-          <td><%= @result[1][item] %></td>
+          <td>№</td>
+          <% if @result != nil %>
+            <td>T/<%= @result[2] %>, сек</td>
+          <% else %>
+            <td>T, сек</td>
+          <% end %>
+          <td>Ошибка, %</td>
         </tr>
+        <% if @result != nil %>
+          <% @result[0].each_index do |item| %>
+          <tr>
+            <td><%= item + 1 %></td>
+            <td><%= @result[0][item] %></td>
+            <td><%= @result[1][item] %></td>
+          </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 

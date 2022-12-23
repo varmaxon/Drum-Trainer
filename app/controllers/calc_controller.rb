@@ -21,25 +21,42 @@ class CalcController < ApplicationController
     mas_res
   end
 
+  def final_result(mas)
+    cnt_ok = 0.0
+    mas.each { |item| cnt_ok += 1 if item == '✅' }
+    stat = (cnt_ok / mas.length * 100).round(2)
+    add_statistics stat
+    stat
+  end
+
   def result
     dl = params[:dl]
-    if params[:a_button]
-      if @@fl == 0
-        @@fl += 1
-      elsif @@fl == 1
-        @@fl += 1
+    if dl.nil?
+      @result = 'Сначала нужно выбрать длительность'
+    else
+      if params[:a_button]
+        if @@fl == 0
+          @@fl += 1
+        elsif @@fl == 1
+          @@fl += 1
+          @@start = Time.now
+        else
+          finish = Time.now
+          delta = (finish - @@start).round(4)
+          @@mas.push(delta)
+        end
         @@start = Time.now
-      else
-        finish = Time.now
-        delta = (finish - @@start).round(4)
-        @@mas.push(delta)
+      elsif params[:b_button]
+        res_analysis = analysis(dl, @@mas)
+        @result = [@@mas, res_analysis, (1.00/dl[-1].to_i).round(2), final_result(res_analysis), current_user.id]
+        @@mas = []
+        @@fl = 0
       end
-      @@start = Time.now
-    elsif params[:b_button]
-      @result = [@@mas, analysis(dl, @@mas)]
-      @@mas = []
-      @@fl = 0
     end
+  end
+
+  def add_statistics(stat)
+    @users_stat = current_user.email
   end
 
 end

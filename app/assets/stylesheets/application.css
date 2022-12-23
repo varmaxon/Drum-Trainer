@@ -266,6 +266,7 @@ td {
   width: 50%;
   /* padding-left: 40%; */
 }
+#final-res { padding-bottom: 20px }
 
 
 /*////////////////// М И Г А Н И Е  К Н О П К И ////////////////////*/
@@ -323,7 +324,7 @@ td {
 
 .pulse {
 	margin:100px;
-  margin-left: 46.5%;
+  margin-left: 44%;
 	display: block;
 	width: 100px;
 	height: 100px;
@@ -363,4 +364,36 @@ td {
 		-moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
 		box-shadow: 0 0 0 0 rgba(204,169,44, 0);
 	}
+}
+
+
+.block-scroll {
+  /* border: 1px solid rgb(216, 0, 0); */
+  width: 500px;
+  height: 450px;
+  /* Включаем отображение полос прокрутки по горизонтали
+  и по вертикали */
+  overflow: auto;
+  /* padding: 20px; */
+}
+
+.block-left {
+  float: left;
+  width: 19%;
+  height: 1000px;
+  background:rgb(206, 27, 27); /* убрать потом */
+  font-size: 30px;
+}
+.block-center {
+  float: left;
+  width: 62%;
+  height: 1000px;
+  /* font-size: 30px; */
+}
+.block-right {
+  float: right;
+  width: 19%;
+  height: 1000px;
+  background:rgb(206, 27, 27); /* убрать потом */
+  font-size: 30px;
 }
