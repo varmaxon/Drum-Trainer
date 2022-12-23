@@ -50,7 +50,7 @@ h2 { color:beige; font-family:monospace; font-size: 25px; }
   margin-left: 28%;
   padding: 50px;
   width: 40%;
-  height: 520px;
+  height: 60 0px;
   border-radius: 3em;
   background: rgba(0, 0, 0, 0.85);
   color: white;
@@ -250,23 +250,31 @@ body {
   width: 500px;
 }
 table {
-  width: 300px;
-  font-size: 30px;
+  /* width: 300px; */
+  /* font-size: 30px; */
   text-align: center;
   border-collapse: collapse;
+}
+#table-dl {
+  padding-top: 20px;
+  /* padding-left: 34%; */
+  color:#44D62C;
 }
 td {
   border: 3px solid purple;
 }
 .table_pos1 {
   padding-top: 10px;
+  /* font-size: 20px; */
   /* padding-left: 33%; */
 }
 .table_users {
   width: 50%;
   /* padding-left: 40%; */
+  line-height: 50px;
 }
-#final-res { padding-bottom: 20px }
+#final-res { padding-bottom: 20px; color: #44D62C }
+.green { color:#44D62C }
 
 
 /*////////////////// М И Г А Н И Е  К Н О П К И ////////////////////*/
@@ -382,7 +390,7 @@ td {
   width: 19%;
   height: 1000px;
   /* background:rgb(206, 27, 27); убрать потом */
-  font-size: 30px;
+  font-size: 25px;
 }
 .block-center {
   float: left;

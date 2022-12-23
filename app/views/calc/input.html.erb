@@ -1,19 +1,21 @@
 <div class="pos">
   <div class="main_content">
-    <div class="block-left">Результат пользователей
+    <div class="block-left"><p class="green">Рейтинг пользователей</p>
       <div class="table_pos1">
         <table class="table_users">
           <tbody>
-            <% list_users = User.all %>
+            <% list_users = User.order(:statistics) %>
             <% list_users.length.times do |i| %>
-            <tr>
-              <td><%= list_users[i].email %></td>
-              <td><%= list_users[i].statistics %>/100</td>
-            </tr>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td><%= list_users[list_users.length - i - 1].email %></td>
+                <td><%= list_users[list_users.length - i - 1].statistics %>/100</td>
+              </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+      <p>Хочешь в рейтинг? Продержись</br><span class='green'>более 10 секунд</span></p>
     </div>
     <div class="block-center">
       <h1>Выберите длительность</h1>
@@ -27,11 +29,13 @@
           <label for="age_child">1/1&nbsp&nbsp&nbsp</label>
           <input type="radio" id="dl2" name="dl" value="1/2" />
           <label for="age_adult">1/2&nbsp&nbsp&nbsp</label>
-          <input type="radio" id="dl1" name="dl" value="1/3" />
+          <input type="radio" id="dl3" name="dl" value="1/3" />
           <label for="age_child">1/3&nbsp&nbsp&nbsp</label>
-          <input type="radio" id="dl2" name="dl" value="1/4" />
-          <label for="age_adult">1/4</label>
-        </div>
+          <input type="radio" id="dl4" name="dl" value="1/4" />
+          <label for="age_adult">1/4&nbsp&nbsp&nbsp</label>
+          <input type="radio" id="dl5" name="dl" value="Hard"/>
+          <label for="age_child">Hard&nbsp&nbsp&nbsp</label>
+        </div></br></br>
         <span class="pulse"><p id="pulse-drum">🥁</p></span>
         
         
@@ -45,6 +49,28 @@
     </div>
     <div class="block-right">
       Инструкция по использованию онлайн-тренажера
+      <div class="pos">
+        Hard:
+      </div>
+      <div id="table-dl">
+        <table>
+          <tbody>
+            <tr>
+              <td>1 удар ➡ 🔴🔵🔵🔵</td>
+            </tr>
+            <tr>
+              <td>2 удар ➡ 🔵🔴🔵🔵</td>
+            </tr>
+            <tr>
+              <td>3 удар ➡ 🔵🔵🔴🔵</td>
+            </tr>
+            <tr>
+              <td>4 удар ➡ 🔵🔵🔵🔴</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>(см.инструкцию)</p>
     </div>
   </div>
 </div>

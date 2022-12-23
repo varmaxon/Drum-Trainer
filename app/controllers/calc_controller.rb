@@ -21,12 +21,32 @@ class CalcController < ApplicationController
     mas_res
   end
 
-  def final_result(mas)
+  def final_result(mas, dl)
     cnt_ok = 0.0
     mas.each { |item| cnt_ok += 1 if item == '✅' }
     stat = (cnt_ok / mas.length * 100).round(2)
-    add_statistics(stat) if (stat != nil)
+    add_statistics(stat) if dl == 'Hard' || ((stat != 0) && (mas.length / dl[-1].to_i >= 10))
     stat
+  end
+
+  def hard_level_analysis(mas)
+    mas_res = []
+    mas.each_index do |item|
+      if item % 4 != 3
+        if (mas[item] - 1.25).abs > 0.07
+          mas_res.push(((mas[item] - 1.25).abs * 100).round(2))
+        else
+          mas_res.push('✅')
+        end
+      else
+        if (mas[item] - 0.25).abs > 0.07
+          mas_res.push(((mas[item] - 0.25).abs * 100).round(2))
+        else
+          mas_res.push('✅')
+        end
+      end
+    end
+    mas_res
   end
 
   def result
@@ -47,10 +67,19 @@ class CalcController < ApplicationController
         end
         @@start = Time.now
       elsif params[:b_button]
-        res_analysis = analysis(dl, @@mas)
-        @result = [@@mas, res_analysis, (1.00 / dl[-1].to_i).round(2), final_result(res_analysis), User.find(current_user.id).email]
-        @@mas = []
-        @@fl = 0
+        if @@mas.length < 3
+          @result = 'Кликните не менее 3-х раз'
+        else
+          if dl == 'Hard'
+            res_analysis = hard_level_analysis @@mas
+          else
+            res_analysis = analysis(dl, @@mas)
+          end
+          final_res = final_result(res_analysis, dl)
+          @result = [@@mas, res_analysis, (1.00 / dl[-1].to_i).round(2), final_res, User.find(current_user.id).email, dl]
+          @@mas = []
+          @@fl = 0
+        end
       end
     end
   end
