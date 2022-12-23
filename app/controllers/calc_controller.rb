@@ -25,7 +25,7 @@ class CalcController < ApplicationController
     cnt_ok = 0.0
     mas.each { |item| cnt_ok += 1 if item == '✅' }
     stat = (cnt_ok / mas.length * 100).round(2)
-    add_statistics stat
+    add_statistics(stat) if (stat != nil)
     stat
   end
 
@@ -48,7 +48,7 @@ class CalcController < ApplicationController
         @@start = Time.now
       elsif params[:b_button]
         res_analysis = analysis(dl, @@mas)
-        @result = [@@mas, res_analysis, (1.00/dl[-1].to_i).round(2), final_result(res_analysis), current_user.id]
+        @result = [@@mas, res_analysis, (1.00 / dl[-1].to_i).round(2), final_result(res_analysis), User.find(current_user.id).email]
         @@mas = []
         @@fl = 0
       end
@@ -56,7 +56,9 @@ class CalcController < ApplicationController
   end
 
   def add_statistics(stat)
-    @users_stat = current_user.email
+    @user = User.find(current_user.id)
+    @user.statistics = stat
+    @user.save
   end
 
 end

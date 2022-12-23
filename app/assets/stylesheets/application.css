@@ -244,7 +244,7 @@ body {
 }
 .table_pos {
   /* padding-top: 10px; */
-  padding-left: 34%;
+  padding-left: 23%;
 }
 .table-res-1{
   width: 500px;
@@ -260,7 +260,7 @@ td {
 }
 .table_pos1 {
   padding-top: 10px;
-  padding-left: 33%;
+  /* padding-left: 33%; */
 }
 .table_users {
   width: 50%;
@@ -381,7 +381,7 @@ td {
   float: left;
   width: 19%;
   height: 1000px;
-  background:rgb(206, 27, 27); /* убрать потом */
+  /* background:rgb(206, 27, 27); убрать потом */
   font-size: 30px;
 }
 .block-center {
@@ -394,6 +394,6 @@ td {
   float: right;
   width: 19%;
   height: 1000px;
-  background:rgb(206, 27, 27); /* убрать потом */
+  /* background:rgb(206, 27, 27); убрать потом */
   font-size: 30px;
 }

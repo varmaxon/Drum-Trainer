@@ -1,15 +1,14 @@
 <div class="pos">
   <div class="main_content">
-    <div class="block-left">Рейтинг пользователей
-      <h2>Список пользователей</h2>
+    <div class="block-left">Результат пользователей
       <div class="table_pos1">
         <table class="table_users">
           <tbody>
             <% list_users = User.all %>
             <% list_users.length.times do |i| %>
             <tr>
-              <td><%= list_users[i].id %></td>
               <td><%= list_users[i].email %></td>
+              <td><%= list_users[i].statistics %>/100</td>
             </tr>
             <% end %>
           </tbody>
@@ -45,7 +44,7 @@
       <div id='result-container'></div>
     </div>
     <div class="block-right">
-    Block-right
+      Инструкция по использованию онлайн-тренажера
     </div>
   </div>
 </div>
