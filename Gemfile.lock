@@ -98,6 +98,8 @@ GEM
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    groupdate (6.1.0)
+      activesupport (>= 5.2)
     hightop (0.3.0)
       activesupport (>= 5.2)
     i18n (1.12.0)
@@ -227,6 +229,7 @@ DEPENDENCIES
   chartkick
   debug
   devise
+  groupdate
   hightop
   importmap-rails
   jbuilder

@@ -14,7 +14,11 @@
         <tr>
           <td>№</td>
           <% if @result != nil %>
-            <td>T/<%= @result[-1] %>, сек</td>
+            <% if @result[-1] != 'Hard' %>
+              <td>T/<%= (1.0 / @result[-1][-1].to_i).round(2) %>, сек</td>
+            <% else %>
+              <td>T/0.25, сек</td>
+            <% end %>
           <% else %>
             <td>T, сек</td>
           <% end %>

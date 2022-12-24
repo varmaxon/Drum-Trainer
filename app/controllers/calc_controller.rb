@@ -49,6 +49,10 @@ class CalcController < ApplicationController
     mas_res
   end
 
+  def progress
+    @progress = 'check'
+  end
+
   def result
     dl = params[:dl]
     if dl.nil?

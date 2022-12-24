@@ -4,6 +4,11 @@
       <div class="table_pos1">
         <table class="table_users">
           <tbody>
+            <tr>
+              <td>№</td>
+              <td>Пользователь</td>
+              <td>%</td>
+            </tr>
             <% list_users = User.order(:statistics) %>
             <% list_users.length.times do |i| %>
               <tr>
@@ -39,7 +44,9 @@
         <span class="pulse"><p id="pulse-drum">🥁</p></span>
         
         
-        <%= form.submit('CLICK', id: 'calculate-btn', name: 'a_button') %></br></br>
+        <%= form.submit('CLICK', id: 'calculate-btn', name: 'a_button') %>
+        <audio id="metr_2" src="<%= asset_path('metr_2.wav') %>"></audio>
+        <button id="btn_metr">🎵</button></br></br>
         <%= form.submit('STOP', id: 'calc-btn', name: 'b_button') %>
       <% end %>
 
@@ -48,10 +55,8 @@
       <div id='result-container'></div>
     </div>
     <div class="block-right">
-      Инструкция по использованию онлайн-тренажера
-      <div class="pos">
-        Hard:
-      </div>
+      <span class="_link_"><%= link_to "Инструкция", instruction_path %></span>
+      <div class="pos">Hard</div>
       <div id="table-dl">
         <table>
           <tbody>
@@ -70,7 +75,9 @@
           </tbody>
         </table>
       </div>
-      <p>(см.инструкцию)</p>
+      <p>(см.инструкцию)</p></br>
+      <p>Ваш прогресс</p>
+      <span class="_link_"><%= link_to "PROGRESS", progress_path %></span>
     </div>
   </div>
 </div>

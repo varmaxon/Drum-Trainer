@@ -75,4 +75,6 @@ gem 'devise'
 
 gem 'chartkick'
 
+gem "groupdate"
+
 gem 'hightop'
