@@ -59,6 +59,7 @@ h2 { color:beige; font-family:monospace; font-size: 25px; }
 .content-title {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 100px;
+  text-align: center;
 }
 #log_in { padding-bottom: 50px; }
 .content-p {
@@ -233,6 +234,10 @@ body {
 .pos {
   padding-top: 100px;
   text-align: center;
+}
+.pos1 {
+  padding-top: 100px;
+  /* text-align: center; */
 }
 .actions {
   padding-top: 15px;
