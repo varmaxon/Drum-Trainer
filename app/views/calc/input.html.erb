@@ -77,7 +77,10 @@
       </div>
       <p>(см.инструкцию)</p></br>
       <p>Ваш прогресс</p>
-      <span class="_link_"><%= link_to "PROGRESS", progress_path %></span>
+      <span class="_link_"><%= link_to "PROGRESS", progress_path %></span></br></br>
+      <%= form_with url: form_path do |form| %>        
+        <%= form.submit('Очистить⚠', id: 'clean-btn', name: 'clean') %>
+      <% end %>
     </div>
   </div>
 </div>

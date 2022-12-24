@@ -25,7 +25,12 @@ class CalcController < ApplicationController
     cnt_ok = 0.0
     mas.each { |item| cnt_ok += 1 if item == '✅' }
     stat = (cnt_ok / mas.length * 100).round(2)
-    add_statistics(stat) if dl == 'Hard' || ((stat != 0) && (mas.length / dl[-1].to_i >= 10))
+
+    Action.create(gen_results: stat, user_id: current_user.id) if stat != 0
+
+    sr_stat = progress
+    add_statistics(sr_stat) if dl == 'Hard' || ((stat * sr_stat != 0) && (mas.length / dl[-1].to_i >= 5))
+    
     stat
   end
 
@@ -50,39 +55,58 @@ class CalcController < ApplicationController
   end
 
   def progress
-    @progress = 'check'
+    @progress = []
+    actions = Action.all
+    actions.each do |action|
+      if action.user_id == current_user.id
+        @progress.push(action.gen_results)
+      end
+    end
+    if @progress.length.zero?
+      0
+    else
+      (@progress.sum / @progress.length).round(2)
+    end
   end
 
   def result
-    dl = params[:dl]
-    if dl.nil?
-      @result = 'Сначала нужно выбрать длительность'
+    if params[:clean]
+      Action.destroy_all
+      @user = User.find(current_user.id)
+      @user.statistics = 0
+      @user.save
     else
-      if params[:a_button]
-        if @@fl == 0
-          @@fl += 1
-        elsif @@fl == 1
-          @@fl += 1
-          @@start = Time.now
-        else
-          finish = Time.now
-          delta = (finish - @@start).round(4)
-          @@mas.push(delta)
-        end
-        @@start = Time.now
-      elsif params[:b_button]
-        if @@mas.length < 3
-          @result = 'Кликните не менее 3-х раз'
-        else
-          if dl == 'Hard'
-            res_analysis = hard_level_analysis @@mas
+    
+      dl = params[:dl]
+      if dl.nil?
+        @result = 'Сначала нужно выбрать длительность'
+      else
+        if params[:a_button]
+          if @@fl == 0
+            @@fl += 1
+          elsif @@fl == 1
+            @@fl += 1
+            @@start = Time.now
           else
-            res_analysis = analysis(dl, @@mas)
+            finish = Time.now
+            delta = (finish - @@start).round(4)
+            @@mas.push(delta)
           end
-          final_res = final_result(res_analysis, dl)
-          @result = [@@mas, res_analysis, (1.00 / dl[-1].to_i).round(2), final_res, User.find(current_user.id).email, dl]
-          @@mas = []
-          @@fl = 0
+          @@start = Time.now
+        elsif params[:b_button]
+          if @@mas.length < 3
+            @result = 'Кликните не менее 3-х раз'
+          else
+            if dl == 'Hard'
+              res_analysis = hard_level_analysis @@mas
+            else
+              res_analysis = analysis(dl, @@mas)
+            end
+            final_res = final_result(res_analysis, dl)
+            @result = [@@mas, res_analysis, (1.00 / dl[-1].to_i).round(2), final_res, User.find(current_user.id).email, dl]
+            @@mas = []
+            @@fl = 0
+          end
         end
       end
     end

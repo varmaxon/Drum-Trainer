@@ -1,8 +1,29 @@
 <div class="pos">
   <div class="main_content">
-    <h1 class="content-title">Ваш ПРОГРЕСС</h1>
+    <h1 class="content-title">Ваш ПРОГРЕСС 📈</h1>
 
-    <%= @progress %>
+    <div class="progress">
+        <table class="table_users_1">
+          <tbody>
+            <tr>
+              <td>№</td>
+              <td>Дата</td>
+              <td>Результат, %</td>
+            </tr>
+            <% list_users = Action.all %>
+            <% index = 0 %>
+            <% list_users.length.times do |i| %>
+              <% if list_users[i].user_id == current_user.id %>
+                <tr>
+                  <td><%= index += 1 %></td>
+                  <td><%= list_users[i].created_at %></td>
+                  <td><%= list_users[i].gen_results %>/100</td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
   </div>
 </div>
